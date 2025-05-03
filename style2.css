@@ -1,0 +1,224 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  transform: perspective(1000px) rotateY(0deg) scale(1);
+  transition: transform 0.5s, box-shadow 0.5s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #4fc3f7, #00bcd4);
+  z-index: -1;
+  filter: blur(15px);
+  opacity: 0.6;
+  transition: all 0.5s;
+}
+
+.container:hover {
+  transform: perspective(1000px) rotateY(5deg) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.container:hover::before {
+  opacity: 0.8;
+}
+
+.header_text {
+  color: #00796b;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gif_container {
+  margin: 20px 0;
+}
+
+.gif_container img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn {
+  background: linear-gradient(45deg, #00838f, #00acc1);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 131, 143, 0.4);
+  margin: 10px 5px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 131, 143, 0.6);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Step Modal Styles */
+.modal-step {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content-step {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(224, 247, 250, 0.95));
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(0deg) translateY(0);
+  transition: transform 0.5s, box-shadow 0.5s;
+  position: relative;
+  border: 1px solid rgba(0, 188, 212, 0.3);
+  animation: modalStepOpen 0.5s forwards;
+}
+
+.modal-content-step::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #4fc3f7, #00bcd4);
+  z-index: -1;
+  filter: blur(15px);
+  opacity: 0.4;
+  transition: all 0.5s;
+}
+
+.modal-content-step:hover {
+  transform: perspective(1000px) rotateY(5deg) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.modal-content-step:hover::before {
+  opacity: 0.6;
+}
+
+@keyframes modalStepOpen {
+  from {
+      opacity: 0;
+      transform: perspective(1000px) rotateY(-20deg) translateY(50px);
+  }
+  to {
+      opacity: 1;
+      transform: perspective(1000px) rotateY(0deg) translateY(0);
+  }
+}
+
+.modal-content-step h2 {
+  color: #00796b;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.modal-content-step input {
+  width: 90%;
+  padding: 12px 15px;
+  margin: 15px 0;
+  border: 2px solid #b2ebf2;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.modal-content-step input:focus {
+  outline: none;
+  border-color: #00bcd4;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.modal-content-step input::placeholder {
+  color: #80deea;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.next-btn {
+  background: linear-gradient(45deg, #00bcd4, #00838f);
+}
+
+.back-btn {
+  background: linear-gradient(45deg, #b2ebf2, #80deea);
+  color: #00796b;
+}
+
+.done-btn {
+  background: linear-gradient(45deg, #00796b, #00695c);
+}
+
+/* Toast Styles */
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  background: linear-gradient(45deg, #e44ad5, #a92c36);
+  color: white;
+  text-align: center;
+  border-radius: 50px;
+  padding: 16px;
+  position: fixed;
+  z-index: 101;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

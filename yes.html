@@ -1,22 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Planner</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
     <div class="container">
-      <div>
-        <h1 class="header_text">Yeeyy ! Finally</h1>
-      </div>
-      <div class="gif_container">
-        <img
-          src="https://i.postimg.cc/wTDG30TB/yes.gif"
-          alt="Cute animated illustration"
-        />
-      </div>
-      <button class="btn" id="DateButton" onclick="nextPage()">
-        Let's Fix a Date
-      </button>
+        <div>
+            <h1 class="header_text">Yeeyy ! Finally</h1>
+        </div>
+        <div class="gif_container">
+            <img src="https://i.postimg.cc/wTDG30TB/yes.gif" alt="Cute animated illustration">
+        </div>
+        <button class="btn" id="DateButton" onclick="startDatePlan()">
+            Let's Fix a Date
+        </button>
     </div>
-  </body>
+
+    <!-- Step 1 Modal - Name -->
+    <div id="step1Modal" class="modal-step">
+        <div class="modal-content-step">
+            <h2>Do you have a name, or should I just call you mine? 💘</h2>
+            <input type="text" id="userName" placeholder="Your beautiful name...">
+            <button class="btn next-btn" onclick="goToStep2()">Next</button>
+        </div>
+    </div>
+
+    <!-- Step 2 Modal - Phone -->
+    <div id="step2Modal" class="modal-step">
+        <div class="modal-content-step">
+            <h2>We meet in dreams anyway… but drop your number, maybe we’ll talk for real. 💫</h2>
+            <input type="tel" id="userPhone" placeholder="Your phone number...">
+            <div class="button-group">
+                <button class="btn back-btn" onclick="backToStep1()">Back</button>
+                <button class="btn next-btn" onclick="goToStep3()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3 Modal - Date/Time -->
+    <div id="step3Modal" class="modal-step">
+        <div class="modal-content-step">
+            <h2>You live in my thoughts… but when will I see you for real? Tell me the day and time. 💖</h2>
+            <input type="date" id="meetingDate">
+            <input type="time" id="meetingTime">
+            <div class="button-group">
+                <button class="btn back-btn" onclick="backToStep2()">Back</button>
+                <button class="btn next-btn" onclick="goToStep4()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 4 Modal - Final -->
+    <div id="step4Modal" class="modal-step">
+        <div class="modal-content-step">
+            <h2>So let’s meet and talk heart to heart! 🌟</h2>
+            <p>Let's make it special ❤️</p>
+            <div class="button-group">
+                <button class="btn back-btn" onclick="backToStep3()">Back</button>
+                <button class="btn done-btn" onclick="submitDatePlan()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+      Let’s vibe in person 💫
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
