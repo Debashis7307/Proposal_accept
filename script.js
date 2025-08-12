@@ -68,15 +68,16 @@ function submitDatePlan() {
       day: 'numeric'
   });
   
-  // Create WhatsApp message
-  const message = `🌟 Date Plan Confirmation 🌟
-  
-Name: ${name}
-Phone: ${phone}
-Date: ${formattedDate}
-Time: ${time}
+// Create WhatsApp message
+const message = `💌 Hey you ❤️
 
-I'm so excited for our date! ❤️`;
+I’ve been looking forward to this moment all week.  
+Let’s catch up on ${formattedDate} at ${time}.  
+
+I’ve been thinking about this all day… and I’m already smiling just imagining it. 🥰  
+
+— ${name}`;
+
   
   // Encode message for URL
   const encodedMessage = encodeURIComponent(message);
